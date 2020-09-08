@@ -2,10 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Clone HTML Repo') {
             steps {
-                echo 'Hello World'
+                git credentialsId: 'SSH_DevOps1406', url: 'https://github.com/DevOps-Company/html.git'
             }
         }
+
+        stage('Copy index.html') {
+            steps {
+                sh 'cp index.html  /var/www/html' 
+            }
+        }
+
+
     }
 }
