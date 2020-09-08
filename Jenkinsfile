@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    
+    agent {
+        label 'master'
+    }
 
     stages {
         stage('Clone HTML Repo') {
