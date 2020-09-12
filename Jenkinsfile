@@ -16,28 +16,20 @@ pipeline {
         
         stage ('Parallel') {
             parallel {
-                stage ('Para 1') {
+                stage('Clone HTML Repo') {
                     steps {
-                        retry(3) {
-                            sh ('dummy')
-                        }
+                        git credentialsId: 'SSH_DevOps1406', url: 'https://github.com/DevOps-Company/html.git'
                     }
                 }
                 
                 stage ('Para 2') {
                     steps {
-                         timeout(time: 1, unit: 'MINUTES') {
-                            sh ('sleep 2m')
+                         timeout(time: 3, unit: 'MINUTES') {
+                            sh ('sleep 1m')
                          }
                     }
                 }
 
-            }
-        }
-                
-        stage('Clone HTML Repo') {
-            steps {
-                git credentialsId: 'SSH_DevOps1406', url: 'https://github.com/DevOps-Company/html.git'
             }
         }
             
