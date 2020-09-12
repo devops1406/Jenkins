@@ -5,7 +5,7 @@ pipeline {
     }
     
     agent {
-        label 'node'
+        label 'node2'
     }
     
     triggers {
