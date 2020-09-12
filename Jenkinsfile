@@ -9,21 +9,35 @@ pipeline {
     }
 
     stages {
+        
         stage ('Parallel') {
             parallel {
+                stage ('Para 1') {
+                    steps {
+                        sh ('echo "Paralled Satge 1"')
+                    }
+                }
                 
-                stage('Clone HTML Repo') {
+                stage ('Para 2') {
                     steps {
-                        git credentialsId: 'SSH_DevOps1406', url: 'https://github.com/DevOps-Company/html.git'
+                        sh ('echo "Paralled Stage 2"')
                     }
                 }
-            
-                stage('Copy index.html') {
-                    steps {
-                        sh 'sudo cp index.html  /var/www/html/' 
-                    }
-                }
+
             }
         }
+                
+        stage('Clone HTML Repo') {
+            steps {
+                git credentialsId: 'SSH_DevOps1406', url: 'https://github.com/DevOps-Company/html.git'
+            }
+        }
+            
+        stage('Copy index.html') {
+            steps {
+                sh 'sudo cp index.html  /var/www/html/' 
+            }
+        }
+        
     }
 }
