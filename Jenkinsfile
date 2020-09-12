@@ -18,13 +18,17 @@ pipeline {
             parallel {
                 stage ('Para 1') {
                     steps {
-                        sh ('echo "Paralled Satge 1 $MyName"')
+                        retry(3) {
+                            sh ('dummy')
+                        }
                     }
                 }
                 
                 stage ('Para 2') {
                     steps {
-                        sh ('echo "Paralled Stage 2 $MyName"')
+                         timeout(time: 1, unit: 'MINUTES') {
+                            sh ('sleep 2m')
+                         }
                     }
                 }
 
