@@ -3,6 +3,10 @@ pipeline {
     agent {
         label 'node'
     }
+    
+    triggers {
+        pollSCM '* * * * *'
+    }
 
     stages {
         stage('Clone HTML Repo') {
