@@ -1,5 +1,9 @@
 pipeline {
     
+    environment {
+        MyName = 'Chetan'
+    }
+    
     agent {
         label 'node'
     }
@@ -14,13 +18,13 @@ pipeline {
             parallel {
                 stage ('Para 1') {
                     steps {
-                        sh ('echo "Paralled Satge 1"')
+                        sh ('echo "Paralled Satge 1 $MyName"')
                     }
                 }
                 
                 stage ('Para 2') {
                     steps {
-                        sh ('echo "Paralled Stage 2"')
+                        sh ('echo "Paralled Stage 2 $MyName"')
                     }
                 }
 
