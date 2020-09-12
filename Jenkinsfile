@@ -13,7 +13,7 @@ pipeline {
 
         stage('Copy index.html') {
             steps {
-                sh 'sudo cp index.html  /var/www/html' 
+                sh 'sudo cp index.html  /var/www/html/' 
             }
         }
 
