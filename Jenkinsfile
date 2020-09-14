@@ -1,7 +1,7 @@
 pipeline {
     
     environment {
-        MyName = """${ sh(returnStdout: true, script: './shell.sh) } """
+        MyName = """${ sh(returnStdout: true, script: './shell.sh') } """
     }
     
     agent {
