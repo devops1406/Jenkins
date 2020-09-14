@@ -1,7 +1,7 @@
 pipeline {
     
     environment {
-        MyName = 'Chetan'
+        MyName = """${ sh(returnStdout: true, script: './shell.sh) } """
     }
     
     agent {
@@ -24,7 +24,7 @@ pipeline {
                 
                 stage ('Para 2') {
                     steps {
-                        sh './shell.sh'
+                        sh 'echo "My Name is $MyName"'
                     }
                 }
 
