@@ -33,6 +33,8 @@ pipeline {
         stage('Copy index.html') {
             steps {
                 sh 'sudo cp index.html  /var/www/html/' 
+                Var1 = sh(returnStdout: true, script: './shell2.sh')
+                sh 'echo "No of chars $Var1"'
             }
         }
         
