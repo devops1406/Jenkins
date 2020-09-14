@@ -35,8 +35,9 @@ pipeline {
                 sh 'sudo cp index.html  /var/www/html/' 
                 script {
                     Var1 = sh label: '', returnStdout: true, script: 'pwd'
+                    println Var1
                 }
-                    sh 'echo "No of chars $Var1"'
+                    sh 'echo "No of chars ${env.Var1}"'
             }
         }
         
