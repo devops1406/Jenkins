@@ -7,10 +7,6 @@ pipeline {
     agent {
         label 'node2'
     }
-    
-    triggers {
-        pollSCM '* * * * *'
-    }
 
     stages {
         
@@ -24,7 +20,7 @@ pipeline {
                 
                 stage ('Para 2') {
                     steps {
-                        sh '''
+                        sh label: 'shell', script: '''
                             #!/bin/bash
                             echo "My Name is $MyName"
                         '''
