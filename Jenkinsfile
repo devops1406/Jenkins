@@ -24,7 +24,7 @@ pipeline {
                 
                 stage ('Para 2') {
                     steps {
-                        sh 'printenv'
+                        sh './shell.sh'
                     }
                 }
 
