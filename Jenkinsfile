@@ -34,7 +34,7 @@ pipeline {
             steps {
                 sh 'sudo cp index.html  /var/www/html/' 
                 script {
-                    Var1 = sh(returnStdout: true, script: './shell2.sh')
+                    Var1 = sh(returnStdout: true, script: 'pwd')
                     sh 'echo "No of chars $Var1"'
                 }
             }
