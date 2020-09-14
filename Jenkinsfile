@@ -24,7 +24,10 @@ pipeline {
                 
                 stage ('Para 2') {
                     steps {
-                        sh 'echo "My Name is $MyName"'
+                        sh '''
+                            #!/bin/bash
+                            echo "My Name is $MyName"
+                        '''
                     }
                 }
 
