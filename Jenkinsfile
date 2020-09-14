@@ -34,10 +34,10 @@ pipeline {
             steps {
                 sh 'sudo cp index.html  /var/www/html/' 
                 script {
-                    Var1 = sh label: '', returnStdout: true, script: 'pwd'
+                    Var1 = sh label: '', returnStdout: true, script: './shell2'
                     println Var1
                 }
-                    sh 'echo "No of chars ${env.Var1}"'
+                    sh 'echo "No of chars ${Var1}"'
             }
         }
         
